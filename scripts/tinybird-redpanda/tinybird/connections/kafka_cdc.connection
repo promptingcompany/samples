@@ -1,0 +1,8 @@
+TYPE kafka
+KAFKA_BOOTSTRAP_SERVERS {{ tb_secret("bootstrap_servers", "redpanda:29092") }}
+KAFKA_SECURITY_PROTOCOL {{ tb_secret("kafka_prod_security_protocol", "PLAINTEXT" ) }}
+KAFKA_SASL_MECHANISM {{ tb_secret("kafka_prod_sasl_mechanism", "PLAIN") }}
+KAFKA_KEY {{ tb_secret("kafka_key", "key") }}
+KAFKA_SECRET {{ tb_secret("kafka_secret", "secret") }}
+KAFKA_SSL_CA_PEM > 
+  {{ tb_secret("kafka_ca_pem", "") }}
