@@ -1,0 +1,16 @@
+{
+  "name": "dfs-locations",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "start": "dotenvx run -- bun run index.ts"
+  },
+  "devDependencies": {
+    "@dotenvx/dotenvx": "^1.51.1",
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  }
+}
