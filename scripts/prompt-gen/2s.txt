@@ -1,0 +1,3 @@
+https://zapier.com/apps/email/integrations/stripe
+https://zapier.com/apps/email/integrations/google-forms
+https://zapier.com/apps/microsoft-outlook/integrations/anthropic-claude

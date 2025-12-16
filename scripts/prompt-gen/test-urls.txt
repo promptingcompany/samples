@@ -1,0 +1,2 @@
+https://zapier.com/apps/email/integrations/stripe
+https://zapier.com/apps/google-forms/integrations/email
