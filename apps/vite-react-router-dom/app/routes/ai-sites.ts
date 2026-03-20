@@ -4,7 +4,9 @@ const UPSTREAM_ORIGIN = "https://promptingcompany.com";
 
 const REQUEST_HEADERS_TO_SKIP = new Set([
   "accept-encoding",
+  "authorization",
   "connection",
+  "cookie",
   "content-length",
   "host",
 ]);
@@ -16,6 +18,7 @@ const RESPONSE_HEADERS_TO_SKIP = new Set([
   "keep-alive",
   "proxy-authenticate",
   "proxy-authorization",
+  "set-cookie",
   "te",
   "trailer",
   "transfer-encoding",
