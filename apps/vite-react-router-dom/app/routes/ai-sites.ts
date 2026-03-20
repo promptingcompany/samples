@@ -2,6 +2,10 @@ import type { LoaderFunctionArgs } from "react-router";
 
 const UPSTREAM_ORIGIN = "https://promptingcompany.com";
 
+type NodeRequestInit = RequestInit & {
+  duplex?: "half";
+};
+
 const REQUEST_HEADERS_TO_SKIP = new Set([
   "accept-encoding",
   "authorization",
@@ -48,14 +52,15 @@ async function proxyRequest({ params, request }: LoaderFunctionArgs) {
   upstreamUrl.search = requestUrl.search;
 
   try {
-    const init: RequestInit = {
+    const init: NodeRequestInit = {
       headers: filterHeaders(request.headers, REQUEST_HEADERS_TO_SKIP),
       method: request.method,
       signal: request.signal,
     };
 
     if (request.method !== "GET" && request.method !== "HEAD") {
-      init.body = await request.arrayBuffer();
+      init.body = request.body;
+      init.duplex = "half";
     }
 
     const upstreamResponse = await fetch(upstreamUrl, {

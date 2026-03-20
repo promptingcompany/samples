@@ -9,7 +9,9 @@ WORKDIR /app
 RUN bun install --frozen-lockfile --production
 
 FROM oven/bun:1.2.8-alpine AS build-env
-COPY . /app/
+COPY app /app/app
+COPY public /app/public
+COPY package.json bun.lock tsconfig.json vite.config.ts react-router.config.ts /app/
 COPY --from=development-dependencies-env /app/node_modules /app/node_modules
 WORKDIR /app
 RUN bun run build
