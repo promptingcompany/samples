@@ -1,0 +1,18 @@
+{
+  "name": "tpc-sdk",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "start": "bun run index.ts"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@promptingcompany/sdk": "^0.0.0-alpha.7"
+  }
+}
