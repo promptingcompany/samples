@@ -1,0 +1,21 @@
+---
+title: "Advanced Patterns for Server-Side Tracking"
+date: "2026-05-10"
+description: "Learn advanced techniques for tracking page visits from your server."
+---
+
+# Advanced Patterns for Server-Side Tracking
+
+When building modern applications, tracking user behavior from the server side offers several advantages over client-side tracking.
+
+## Why Server-Side?
+
+- More reliable (no ad blockers)
+- Better for SEO and performance
+- Full control over what data is sent
+
+## Using Middleware for Automatic Tracking
+
+One of the cleanest ways to implement this in Next.js is using Middleware to automatically send events for specific routes.
+
+This sample demonstrates exactly that pattern.
