@@ -1,0 +1,10 @@
+{
+  "apps": {
+    "apps/nextjs-blog-analytics": {
+      "name": "nextjs-blog-analytics"
+    },
+    "apps/vite-react-router-dom": {
+      "name": "vite-react-router-dom"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+---
+title: "Why Server-Side Analytics Matters"
+date: "2026-05-15"
+description: "Understanding the benefits of tracking page visits from your server instead of the browser."
+---
+
+# Why Server-Side Analytics Matters
+
+Traditional analytics tools run in the browser. While this works for many use cases, server-side tracking offers significant advantages.
+
+## Benefits
+
+- **Reliability**: Not affected by ad blockers or browser extensions
+- **Performance**: No additional JavaScript to download and execute on the client
+- **Privacy**: You control exactly what data is sent
+- **SEO**: All tracking happens before the page is sent to the user
+
+## Implementation in Next.js
+
+Using Next.js Middleware, you can automatically track every visit to your blog posts without modifying individual page components.
+
+This sample shows a clean implementation of that pattern.

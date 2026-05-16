@@ -1,0 +1,18 @@
+---
+title: "Why Use Middleware for Analytics"
+date: "2026-05-12"
+description: "The advantages of tracking page views at the Middleware layer in Next.js."
+---
+
+# Why Use Middleware for Analytics
+
+Middleware sits between the incoming request and your route handlers. This makes it the perfect place for cross-cutting concerns like analytics.
+
+## Benefits
+
+- Automatic tracking for entire route groups
+- No need to modify every page component
+- Runs before the page is rendered
+- Can be combined with A/B testing, feature flags, etc.
+
+This sample shows a production-ready implementation of server-side tracking using this pattern.
