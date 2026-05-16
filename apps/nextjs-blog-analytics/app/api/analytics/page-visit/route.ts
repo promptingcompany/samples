@@ -1,43 +1,41 @@
 import { NextRequest, NextResponse } from 'next/server';
-import tpc from '@promptingcompany/sdk';
+import ThePromptingCompany from '@promptingcompany/sdk';
+
+// Initialize the official Prompting Company SDK client.
+// Credentials come from environment variables (recommended for server-side usage).
+const client = new ThePromptingCompany({
+  apiKey: process.env.TPC_API_KEY,
+  organizationSlug: process.env.TPC_ORG_SLUG,
+  productSlug: process.env.TPC_PRODUCT_SLUG,
+});
 
 export async function POST(request: NextRequest) {
   try {
     const eventData = await request.json();
 
-    // Send the page visit event to The Prompting Company analytics endpoint
-    // (using the SDK's expected authentication pattern)
-    // Using the SDK's configured environment and authentication
-    const response = await fetch(
-      'https://app.promptingco.com/api/v1/analytics/events',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          // The SDK reads TPC_API_KEY automatically, but for direct calls we use it explicitly
-          Authorization: `Bearer ${process.env.TPC_API_KEY}`,
-        },
-        body: JSON.stringify({
+    // Use the official @promptingcompany/sdk to send the page_visit event.
+    // The SDK handles authentication, retries, error normalization, and base URL.
+    await client
+      .post('/api/v1/analytics/events', {
+        body: {
           ...eventData,
-          // Automatically attach SDK metadata
+          // Attach SDK/runtime metadata so The Prompting Company can attribute the source
           sdk: {
-            name: '@promptingcompany/nextjs-blog-sample',
-            version: '0.1.0',
+            name: '@promptingcompany/sdk',
+            version: '0.1.1',
             runtime: 'nextjs',
             ...eventData.sdk,
           },
-        }),
-      }
-    );
-
-    if (!response.ok) {
-      console.error('[Analytics] Failed to send event:', await response.text());
-      return NextResponse.json({ success: false }, { status: 500 });
-    }
+        },
+      })
+      .catch(() => {
+        // Never let analytics tracking break the user experience.
+        // In production you may want to send this to your own error tracker.
+      });
 
     return NextResponse.json({ success: true });
   } catch (error) {
-    console.error('[Analytics] Error sending page visit:', error);
+    console.error('[Analytics] Error sending page visit event:', error);
     return NextResponse.json({ success: false }, { status: 500 });
   }
 }

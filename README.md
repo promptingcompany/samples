@@ -7,7 +7,7 @@ A collection of example applications demonstrating how to integrate with The Pro
 | Sample | Description | Stack |
 |--------|-------------|-------|
 | [vite-react-router-dom](./apps/vite-react-router-dom) | AI-powered site that proxies to promptingcompany.com | Vite + React Router |
-| [nextjs-blog-analytics](./apps/nextjs-blog-analytics) | Next.js blog with automatic server-side analytics tracking via Middleware | Next.js 16 + App Router + MDX |
+| [nextjs-blog-analytics](./apps/nextjs-blog-analytics) | Next.js blog with server-side analytics + dynamic MDX content powered by the Prompting Company SDK (`document.list` / `document.getByPath`) | Next.js 16 + SDK + MDX |
 
 ## Getting Started
 

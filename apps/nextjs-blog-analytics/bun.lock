@@ -5,7 +5,7 @@
     "": {
       "name": "nextjs-blog-analytics",
       "dependencies": {
-        "@promptingcompany/sdk": "^0.0.0-alpha.7",
+        "@promptingcompany/sdk": "^0.2.1",
         "@types/mdx": "^2.0.13",
         "gray-matter": "^4.0.3",
         "next": "16.2.6",
@@ -192,7 +192,7 @@
 
     "@nolyfill/is-core-module": ["@nolyfill/is-core-module@1.0.39", "", {}, "sha512-nn5ozdjYQpUCZlWGuxcJY/KpxkWQs4DcbMCmKojjyrYDEAGy4Ce19NN4v5MduafTwJlbKc99UA8YhSVqq9yPZA=="],
 
-    "@promptingcompany/sdk": ["@promptingcompany/sdk@0.0.0-alpha.7", "", {}, "sha512-JAAPP5Kbr0XqBdJLXEikIM6pZa55+SHBe5rrzNshToMV55/EHvGfDhbtCBzFGWze+de/8iQzu0FtchIgEKxHOw=="],
+    "@promptingcompany/sdk": ["@promptingcompany/sdk@0.2.1", "", {}, "sha512-uIzpHoE91vlWOOdPsW9/q3crTleSQgeNPslRYhe/ZKL6CYl6kmRfblkmqYm5SM+2mdF5EfCtEJ2g2cb4iJbdyw=="],
 
     "@rtsao/scc": ["@rtsao/scc@1.1.0", "", {}, "sha512-zt6OdqaDoOnJ1ZYsCYGt9YmWzDXl4vQdKTyJev62gFhRGKdx7mcT54V9KIjg+d2wi9EXsPvAPKe7i7WjfVWB8g=="],
 
