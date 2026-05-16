@@ -42,7 +42,6 @@ Get your credentials from [The Prompting Company dashboard](https://app.promptin
 - `TPC_API_KEY` — A server-side API key with the `analytics:write` scope
 - `TPC_ORG_SLUG` — Your organization slug
 - `TPC_PRODUCT_SLUG` — The product you want to track (used for `document.list()`)
-- `BLOG_PATH_PREFIX` — (Optional) Path prefix for blog content in TPC (e.g. `blog/` or `posts/`). Leave empty if your posts live at the root of the product.
 
 ### 3. Run the development server
 
