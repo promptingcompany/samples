@@ -41,11 +41,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       // Strip the configured path prefix (e.g. "blog/" or "posts/")
       // so we generate clean URLs under /blog
       let relativePath = item.filePath;
-      if (BLOG_PATH_PREFIX) {
-        relativePath = relativePath.replace(
-          new RegExp(`^${BLOG_PATH_PREFIX}`),
-          ''
-        );
+      if (BLOG_PATH_PREFIX && relativePath.startsWith(BLOG_PATH_PREFIX)) {
+        relativePath = relativePath.slice(BLOG_PATH_PREFIX.length);
       }
 
       const slug = relativePath.replace(/\.(md|mdx)$/, '');

@@ -4,8 +4,8 @@ import type { NextRequest } from 'next/server';
 export async function proxy(request: NextRequest) {
   const { pathname, search } = request.nextUrl;
 
-  // Track all visits to blog posts
-  if (pathname.startsWith('/blog/') && pathname !== '/blog') {
+  // Track all visits to blog posts (exclude the index page itself)
+  if (pathname.startsWith('/blog/') && pathname !== '/blog' && pathname !== '/blog/') {
     const slug = pathname.replace('/blog/', '');
 
     // Fire analytics event in the background (non-blocking)

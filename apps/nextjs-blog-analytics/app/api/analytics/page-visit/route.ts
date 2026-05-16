@@ -1,5 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
 import ThePromptingCompany from '@promptingcompany/sdk';
+import { readFileSync } from 'fs';
+import { join } from 'path';
+
+const sdkPackage = JSON.parse(
+  readFileSync(join(process.cwd(), 'node_modules/@promptingcompany/sdk/package.json'), 'utf8')
+);
 
 // Initialize the official Prompting Company SDK client.
 // Credentials come from environment variables (recommended for server-side usage).
@@ -22,7 +28,7 @@ export async function POST(request: NextRequest) {
           // Attach SDK/runtime metadata so The Prompting Company can attribute the source
           sdk: {
             name: '@promptingcompany/sdk',
-            version: '0.1.1',
+            version: sdkPackage.version,
             runtime: 'nextjs',
             ...eventData.sdk,
           },
