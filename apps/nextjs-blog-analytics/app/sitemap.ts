@@ -1,7 +1,6 @@
 import { MetadataRoute } from 'next';
 import { getTPCClient } from '@/lib/tpc';
 
-const BLOG_PATH_PREFIX = process.env.BLOG_PATH_PREFIX || '';
 const BASE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ||
   'https://nextjs-blog-analytics.localhost:1355';
@@ -34,19 +33,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     const { data } = await client.document.list({
       productSlug: process.env.TPC_PRODUCT_SLUG!,
-      pathPrefix: BLOG_PATH_PREFIX,
+      // No pathPrefix — include all documents
     });
 
     for (const item of data.items) {
-      // Strip the configured path prefix (e.g. "blog/" or "posts/")
-      // so we generate clean URLs under /blog
-      let relativePath = item.filePath;
-      if (BLOG_PATH_PREFIX && relativePath.startsWith(BLOG_PATH_PREFIX)) {
-        relativePath = relativePath.slice(BLOG_PATH_PREFIX.length);
-      }
-
-      const slug = relativePath.replace(/\.(md|mdx)$/, '');
-
+      const slug = item.filePath.replace(/\.(md|mdx)$/, '');
       if (!slug) continue;
 
       entries.push({
