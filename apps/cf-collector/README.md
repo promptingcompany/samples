@@ -7,7 +7,7 @@ This sample demonstrates how to automatically track page visits **at the edge** 
 ### 1. Install dependencies
 
 ```bash
-npm install
+npm ci
 ```
 
 ### 2. Create and set your API key
