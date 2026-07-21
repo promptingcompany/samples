@@ -1,0 +1,17 @@
+{
+	"name": "cf-collector",
+	"version": "1.0.0",
+	"description": "Cloudflare Worker to intercept and forward page_visit events",
+	"scripts": {
+		"dev": "wrangler dev",
+		"wrangler:login": "wrangler login",
+		"wrangler:deploy": "wrangler deploy",
+		"gen:types": "wrangler types",
+		"tail": "wrangler tail"
+	},
+	"devDependencies": {
+		"@cloudflare/workers-types": "^5.20260721.1",
+		"typescript": "^6.0.3",
+		"wrangler": "^4.113.0"
+	}
+}
