@@ -12,7 +12,7 @@ npm install
 
 ### 2. Create and set your API key
 
-Create an API key with the `analytics:write` scope going to your Organization Settings, then selecting API Keys. Note that creating an API key requires an account with the Enterprise Plan.
+Create an API key with the `analytics:write` scope by navigating to your Organization Settings, then selecting API Keys. Note that creating an API key requires an account with the Enterprise Plan.
 
 Once you have your key, you can store it as a [Wrangler secret](https://developers.cloudflare.com/workers/configuration/secrets/) by running
 
