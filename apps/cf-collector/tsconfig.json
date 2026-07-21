@@ -1,0 +1,23 @@
+{
+	"compilerOptions": {
+		"target": "ES2021",
+		"module": "ESNext",
+		"lib": ["ES2021"],
+		"types": ["@cloudflare/workers-types"],
+		"moduleResolution": "bundler",
+		"strict": true,
+		"skipLibCheck": true,
+		"esModuleInterop": true,
+		"allowSyntheticDefaultImports": true,
+		"forceConsistentCasingInFileNames": true,
+		"resolveJsonModule": true,
+		"isolatedModules": true,
+		"noEmit": true,
+		"composite": true,
+		"paths": {
+			"@/*": ["./src/*"]
+		}
+	},
+	"include": ["src/**/*"],
+	"exclude": ["node_modules", "dist", ".turbo"]
+}
