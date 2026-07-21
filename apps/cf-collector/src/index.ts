@@ -63,11 +63,11 @@ async function sendEvent(request: Request, env: Env) {
     } catch (error) {
       console.log("Error while sending event:", error)
     }
-    await sleep(3000)
     if (i === MAX_RETRIES - 1) {
       break
     }
     console.log(`Retrying to send event... (${i + 1}/${MAX_RETRIES})`)
+    await sleep(3000)
   }
   console.error(`Failed to send event after ${MAX_RETRIES} retries!`)
 }
