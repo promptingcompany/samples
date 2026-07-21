@@ -6,7 +6,8 @@
 		"dev": "wrangler dev",
 		"wrangler:login": "wrangler login",
 		"wrangler:deploy": "wrangler deploy",
-		"gen:types": "wrangler types"
+		"gen:types": "wrangler types",
+		"tail": "wrangler tail"
 	},
 	"devDependencies": {
 		"@cloudflare/workers-types": "^5.20260721.1",
