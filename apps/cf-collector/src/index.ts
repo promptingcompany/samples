@@ -43,19 +43,35 @@ async function sendEvent(request: Request, env: Env) {
     },
   }
 
-  try {
-    const res = await fetch(env.TPC_API_URL, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "X-API-Key": `${env.TPC_API_KEY}`,
-      },
-      body: JSON.stringify(eventData),
-    })
-    if (!res.ok) {
-      console.log("Error while sending event:", res.status)
+  const MAX_RETRIES = 3
+
+  // Retry multiple times
+  for (let i = 0; i < MAX_RETRIES; i++) {
+    try {
+      const res = await fetch(env.TPC_API_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-API-Key": `${env.TPC_API_KEY}`,
+        },
+        body: JSON.stringify(eventData),
+      })
+      if (!res.ok) {
+        console.log("Error while sending event:", res.status)
+      }
+      return
+    } catch (error) {
+      console.log("Error while sending event:", error)
     }
-  } catch (error) {
-    console.log("Error while sending event:", error)
+    await sleep(3000)
+    if (i === MAX_RETRIES - 1) {
+      break
+    }
+    console.log(`Retrying to send event... (${i + 1}/${MAX_RETRIES})`)
   }
+  console.error(`Failed to send event after ${MAX_RETRIES} retries!`)
+}
+
+function sleep(ms: number) {
+  return new Promise(resolve => setTimeout(resolve, ms))
 }
