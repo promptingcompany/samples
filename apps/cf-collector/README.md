@@ -25,12 +25,14 @@ npx wrangler secret put TPC_API_KEY
 Edit the `routes` array in `wrangler.jsonc` to match the pages you want to track:
 
 ```jsonc
-"routes": [
-  {
-    "pattern": "example.com/*", // any pages you want to catch
-    "zone_name": "example.com"  // zone_id is also accepted
-  }
-]
+{
+  "routes": [
+    {
+      "pattern": "example.com/*", // any pages you want to catch
+      "zone_name": "example.com"  // zone_id is also accepted
+    }
+  ]
+}
 ```
 
 ### 4. Deploy
