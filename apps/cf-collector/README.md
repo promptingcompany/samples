@@ -50,7 +50,6 @@ npm run deploy:production
 | `npm run wrangler:deploy`   | Deploy the worker                             |
 | `npm run deploy:production` | Deploy to the `production` environment        |
 | `npm run gen:types`         | Generate types from `wrangler.jsonc`          |
-| `npm run tail`              | Stream live logs from the deployed worker     |
 
 ## Learn More
 

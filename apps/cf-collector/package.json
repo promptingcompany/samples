@@ -7,9 +7,7 @@
 		"wrangler:login": "wrangler login",
 		"wrangler:deploy": "wrangler deploy",
 		"gen:types": "wrangler types",
-		"deploy:production": "wrangler deploy --env production",
-		"tail": "wrangler tail",
-		"script:test": "./test-local.sh"
+		"deploy:production": "wrangler deploy --env production"
 	},
 	"devDependencies": {
 		"@cloudflare/workers-types": "^4.20240806.0",
